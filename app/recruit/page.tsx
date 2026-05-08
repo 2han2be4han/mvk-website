@@ -32,8 +32,8 @@ export default function RecruitPage() {
         kicker="Careers"
         title={
           <>
-            あなたの仕事は、<br className="hidden sm:block" />
-            <span className="gradient-text-aqua">明日の蛇口</span>の信頼。
+            あなたの仕事は<br className="hidden sm:block" />
+            <span className="gradient-text-aqua">明日の蛇口</span>の信頼
           </>
         }
         description="目立たないけれど、確かに人の暮らしに残る仕事。70 年磨いてきたものづくりを、あなたと次の世代へ繋いでいきたい。"
@@ -46,7 +46,7 @@ export default function RecruitPage() {
 
       <section className="py-28 md:py-40">
         <div className="container-x">
-          <SectionHeading kicker="Values" title="3 つの価値観。" />
+          <SectionHeading kicker="Values" title="3 つの価値観" />
           <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-ink-200 bg-ink-200 md:grid-cols-3">
             {VALUES.map((v) => (
               <Reveal key={v.no}>

@@ -74,7 +74,7 @@ export default function Footer() {
           <div>
             <Logo invert />
             <p className="mt-10 max-w-sm text-pretty font-display text-2xl font-medium leading-[1.15] text-white/85 md:text-3xl">
-              暮らしと、<br />水をむすぶ。
+              暮らしと<br />水をむすぶ
             </p>
             <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-white/45">
               MAEDA VALVE INDUSTRIES, LTD.<br />

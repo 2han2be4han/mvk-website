@@ -90,8 +90,8 @@ export default function Products() {
             kicker="Catalog"
             title={
               <>
-                暮らしの<span className="gradient-text-aqua">あらゆる水回り</span>に、<br />
-                MVK の精密が宿る。
+                暮らしの<span className="gradient-text-aqua">あらゆる水回り</span>に<br />
+                MVK の精密が宿る
               </>
             }
             description="住宅用バルブから災害時の応急給水栓、労働安全用品まで。1,200 を超えるラインアップから 4 つの代表をご紹介します。"

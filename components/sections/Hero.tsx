@@ -71,12 +71,12 @@ export default function Hero() {
         style={{ y, opacity }}
       >
         <h1 className="font-display text-[clamp(3rem,10.5vw,11rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-ink-900">
-          <SplitLine text="暮らしと、" delay={0.15} />
+          <SplitLine text="暮らしと" delay={0.15} />
           <br />
           <span className="inline-block">
             <SplitLine text="水を" delay={0.45} />
             <span className="gradient-text-aqua">
-              <SplitLine text="むすぶ。" delay={0.65} />
+              <SplitLine text="むすぶ" delay={0.65} />
             </span>
           </span>
         </h1>

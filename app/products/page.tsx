@@ -35,7 +35,7 @@ export default function ProductsPage() {
         title={
           <>
             水回りの<br className="hidden sm:block" />
-            <span className="gradient-text-aqua">あらゆる役割</span>に。
+            <span className="gradient-text-aqua">あらゆる役割</span>に
           </>
         }
         description="住宅から災害現場、産業ラインまで。MVK は 1,200 を超える製品で、現場ごとの「確実」をつくります。"
@@ -95,7 +95,7 @@ export default function ProductsPage() {
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <SectionHeading
             kicker="Downloads"
-            title={<>カタログ /<br />CAD データ。</>}
+            title={<>カタログ /<br />CAD データ</>}
             description="設計者・施工管理者向けに、最新の製品仕様書と CAD データを公開しています。"
           />
           <Reveal>

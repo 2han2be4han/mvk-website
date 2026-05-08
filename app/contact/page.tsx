@@ -25,7 +25,7 @@ export default function ContactPage() {
         title={
           <>
             一通の<br className="hidden sm:block" />
-            <span className="gradient-text-aqua">メッセージ</span>から。
+            <span className="gradient-text-aqua">メッセージ</span>から
           </>
         }
         description="製品・採用・取材・共同開発のお問い合わせを受け付けています。担当より 2 営業日以内にご連絡いたします。"
@@ -39,7 +39,7 @@ export default function ContactPage() {
       <section className="py-28 md:py-40">
         <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:gap-20 lg:items-start">
           <Reveal>
-            <SectionHeading kicker="Channels" title={<>連絡先<br />窓口。</>} />
+            <SectionHeading kicker="Channels" title={<>連絡先<br />窓口</>} />
             <div className="mt-12 border border-ink-200 bg-white">
               {CHANNELS.map(({ icon: Icon, code, label, value }) => (
                 <div

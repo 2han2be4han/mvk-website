@@ -35,8 +35,8 @@ export default function AboutPage() {
         kicker="About"
         title={
           <>
-            70 年、暮らしの<br className="hidden sm:block" />
-            背中側で支え続ける。
+            70 年 暮らしの<br className="hidden sm:block" />
+            背中側で支え続ける
           </>
         }
         description="バルブと管継手は、決して目に触れない。けれどもそれが止まれば、街は止まる。だから私たちは、誰よりも厳しく自分たちを見続けてきました。"
@@ -51,7 +51,7 @@ export default function AboutPage() {
         <div className="container-x grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <SectionHeading
             kicker="Mission"
-            title={<>水を、確かに。<br />暮らしを、揺るぎなく。</>}
+            title={<>水を 確かに<br />暮らしを 揺るぎなく</>}
           />
           <Reveal>
             <div className="space-y-6 text-pretty text-ink-700 leading-relaxed">

@@ -14,8 +14,8 @@ export default function Strengths() {
             kicker="What we stand on"
             title={
               <>
-                技術と信頼が、<br className="hidden sm:block" />
-                半世紀の差を生む。
+                技術と信頼が<br className="hidden sm:block" />
+                半世紀の差を生む
               </>
             }
             description="独自の精密加工と全数検査、そして 70 年積み重ねた現場の判断基準。MVK の強さは、見えないところに重ねた誠実の総量にあります。"
@@ -80,8 +80,8 @@ function Card01Precision() {
       <div className="mt-6 grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
         <div>
           <h3 className="font-display text-3xl font-semibold leading-[1.05] tracking-tight text-ink-900 md:text-4xl">
-            ミクロン単位の<br />
-            精度で、確実に止める。
+            ミクロン単位の精度で<br />
+            確実に止める
           </h3>
           <p className="mt-5 max-w-md text-pretty text-[15px] leading-relaxed text-ink-500">
             5 軸 NC マシンによるシート面加工と、人の手による最終仕上げ。
@@ -133,8 +133,8 @@ function Card03Network() {
       <div className="mt-6 grid grid-cols-[1fr_auto] gap-6 items-start">
         <div>
           <h3 className="font-display text-2xl font-semibold leading-tight text-ink-900">
-            47 都道府県へ、<br />
-            止めない流通網。
+            47 都道府県へ<br />
+            止めない流通網
           </h3>
           <p className="mt-3 max-w-xs text-sm text-ink-500">
             全国の代理店・問屋様と協働し、計画備蓄から緊急出荷まで応えます。
@@ -195,7 +195,7 @@ function Card06Origin() {
           33.7°N · 130.5°E
         </div>
         <h3 className="mt-3 font-display text-xl font-semibold leading-snug text-ink-900">
-          Made in<br />Koga, Fukuoka.
+          Made in<br />Koga, Fukuoka
         </h3>
         <p className="mt-3 text-[13px] leading-relaxed text-ink-500">
           九州の小さな工場から、世界水準の品質を発信し続けています。

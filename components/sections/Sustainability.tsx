@@ -35,8 +35,8 @@ export default function Sustainability() {
             kicker="Sustainability"
             title={
               <>
-                100 年企業へ、<br />
-                <span className="gradient-text-aqua">水と人</span>を守る。
+                100 年企業へ<br />
+                <span className="gradient-text-aqua">水と人</span>を守る
               </>
             }
             description="設立 70 年を節目に、私たちは次の 30 年で何を残すべきかを問い続けています。製品づくりだけでなく、人と地球の循環の中に、MVK の役割を再定義します。"

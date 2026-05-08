@@ -34,7 +34,7 @@ export default function TechPage() {
         title={
           <>
             ミクロンの<br className="hidden sm:block" />
-            <span className="gradient-text-aqua">精度</span>をつくる。
+            <span className="gradient-text-aqua">精度</span>をつくる
           </>
         }
         description="バルブの「止まる」「流れる」は、たった数ミクロンの寸法差に左右されます。MVK の製造現場では、人と機械の両方の感性で、その差を毎日確かめます。"
@@ -47,7 +47,7 @@ export default function TechPage() {
 
       <section className="py-28 md:py-40">
         <div className="container-x">
-          <SectionHeading kicker="Process" title="6 ステップで完成する、信頼。" />
+          <SectionHeading kicker="Process" title="6 ステップで完成する信頼" />
           <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-ink-200 bg-ink-200 sm:grid-cols-2 lg:grid-cols-3">
             {STEPS.map((s) => (
               <Reveal key={s.no}>
@@ -72,7 +72,7 @@ export default function TechPage() {
         <div className="container-x grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <SectionHeading
             kicker="R&D"
-            title={<>研究開発で<br />30 年先を見る。</>}
+            title={<>研究開発で<br />30 年先を見る</>}
             description="次世代の節水バルブ、IoT 対応スマート止水栓、リサイクル素材の活用など、バルブの未来は技術の積み重ねの先にあります。"
           />
           <Reveal>

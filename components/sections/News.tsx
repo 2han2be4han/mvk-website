@@ -25,7 +25,7 @@ export default function News() {
           <SectionHeading
             index="06"
             kicker="Newsroom"
-            title={<>MVK の<br className="sm:hidden" />最新の動き。</>}
+            title={<>MVK の<br className="sm:hidden" />最新の動き</>}
           />
           <Reveal>
             <Link

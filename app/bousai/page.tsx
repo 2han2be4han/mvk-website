@@ -77,7 +77,7 @@ export default function BousaiPage() {
         title={
           <>
             「その時」に<br className="hidden sm:block" />
-            <span className="gradient-text-aqua">確実に動く</span>製品。
+            <span className="gradient-text-aqua">確実に動く</span>製品
           </>
         }
         description="災害発生時、機器の信頼性は人命の信頼性と等しい。製品が動かなければ、消火も給水もできない。だから私たちは、防災製品を最も厳しい基準でつくります。"
@@ -126,7 +126,7 @@ export default function BousaiPage() {
         <div className="container-x grid gap-16 lg:grid-cols-2 lg:items-start">
           <SectionHeading
             kicker="Quality"
-            title={<>災害は、<br />テストを許さない。</>}
+            title={<>災害は<br />テストを許さない</>}
             description="一度の出荷不良も、私たちにとっては「数千分の一」ではなく「現場の一回」。だからこそ、防災製品は全数検査・抜き取りに加えて、長期備蓄試験までを通過したものだけを世に出します。"
             invert
           />

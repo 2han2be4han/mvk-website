@@ -64,8 +64,8 @@ export default function Bousai() {
             kicker="Disaster Prevention"
             title={
               <>
-                その瞬間に、<br />
-                <span className="gradient-text-aqua">迷わず動く</span>製品。
+                その瞬間に<br />
+                <span className="gradient-text-aqua">迷わず動く</span>製品
               </>
             }
             description="災害発生時、機器の信頼性は人命の信頼性と等しい。70 年蓄積した精密技術で、最後の一点まで動く製品をつくります。"

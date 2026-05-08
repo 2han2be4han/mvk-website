@@ -23,8 +23,8 @@ export default function CTA() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-8 font-display text-[clamp(2.75rem,7vw,6.5rem)] font-semibold leading-[1.02] tracking-[-0.03em]">
-              次のインフラを、<br />
-              <span className="gradient-text-aqua">一緒につくる。</span>
+              次のインフラを<br />
+              <span className="gradient-text-aqua">一緒につくる</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

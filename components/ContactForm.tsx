@@ -43,7 +43,7 @@ export default function ContactForm() {
               <Check className="size-7" strokeWidth={2.4} />
             </motion.div>
             <h3 className="mt-6 font-display text-2xl font-semibold text-ink-900">
-              送信しました。
+              送信しました
             </h3>
             <p className="mt-2 max-w-sm text-pretty text-center text-sm text-ink-500">
               ご連絡ありがとうございます。担当より 2 営業日以内にご返信いたします。
