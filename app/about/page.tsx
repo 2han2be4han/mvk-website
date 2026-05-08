@@ -31,6 +31,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        index="A"
         kicker="About"
         title={
           <>
@@ -39,6 +40,11 @@ export default function AboutPage() {
           </>
         }
         description="バルブと管継手は、決して目に触れない。けれどもそれが止まれば、街は止まる。だから私たちは、誰よりも厳しく自分たちを見続けてきました。"
+        meta={[
+          { label: 'Founded', value: '1956' },
+          { label: 'HQ', value: 'Koga, Fukuoka' },
+          { label: 'Cert.', value: 'ISO 9001 / 健康経営 2026' },
+        ]}
       />
 
       <section className="py-24 md:py-32">

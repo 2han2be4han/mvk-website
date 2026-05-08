@@ -1,31 +1,37 @@
-import { Leaf, HeartHandshake, Recycle } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import Reveal from '../ui/Reveal';
 
 const PILLARS = [
   {
-    icon: Leaf,
-    title: '節水・省エネ製品',
-    description: '使用水量と環境負荷を抑える、次世代バルブの研究開発。',
+    no: '01',
+    metric: '−30%',
+    title: '節水・省エネ',
+    en: 'Water Saving',
+    body: '従来比 30% の流量削減を実現する次世代バルブ。日々の水使用に、目立たないけれど効く貢献を。',
   },
   {
-    icon: HeartHandshake,
+    no: '02',
+    metric: '2026',
     title: '健康経営',
-    description: '優良法人 2026 認定。製品品質と同じ尺度で人を守る。',
+    en: 'Healthy Workplace',
+    body: '「健康経営優良法人 2026」認定取得。製品品質と同じ尺度で、人と組織の健全さを守る。',
   },
   {
-    icon: Recycle,
+    no: '03',
+    metric: '92%',
     title: '工場の循環設計',
-    description: '加工屑・冷却水のリサイクルを推進し、資源を循環させる。',
+    en: 'Circular Manufacturing',
+    body: '加工屑黄銅と冷却水のリサイクル率を 90% 以上で運用。資源を、循環させ続けるものづくり。',
   },
 ];
 
 export default function Sustainability() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-36">
-      <div className="container-x grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-        <div>
+    <section className="relative bg-paper py-28 md:py-40">
+      <div className="container-x">
+        <div className="grid gap-16 md:grid-cols-[1fr_auto] md:items-end">
           <SectionHeading
+            index="05"
             kicker="Sustainability"
             title={
               <>
@@ -35,28 +41,36 @@ export default function Sustainability() {
             }
             description="設立 70 年を節目に、私たちは次の 30 年で何を残すべきかを問い続けています。製品づくりだけでなく、人と地球の循環の中に、MVK の役割を再定義します。"
           />
+          <Reveal direction="left" delay={0.2}>
+            <div className="hairline-l hairline-b hidden gap-6 px-6 pb-2 pt-1 font-mono text-[11px] text-ink-500 md:flex">
+              <span>FIG.</span>
+              <span>05 / 06</span>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="grid gap-4">
-          {PILLARS.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <Reveal key={p.title} delay={i * 0.1}>
-                <div className="group relative overflow-hidden rounded-3xl border border-ink-100 bg-white p-6 transition-all duration-500 hover:border-leaf-500/40 hover:shadow-soft">
-                  <div className="absolute -right-12 -top-12 size-40 rounded-full bg-leaf-500/10 blur-3xl transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
-                  <div className="relative flex items-start gap-5">
-                    <div className="inline-flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-leaf-500/20 to-aqua-500/10 text-leaf-500">
-                      <Icon className="size-5" strokeWidth={1.6} />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-xl font-semibold text-ink-900">{p.title}</h3>
-                      <p className="mt-1 text-sm text-ink-500">{p.description}</p>
-                    </div>
-                  </div>
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-ink-200 bg-ink-200 md:grid-cols-3 lg:mt-24">
+          {PILLARS.map((p) => (
+            <Reveal key={p.no}>
+              <div className="group relative h-full bg-paper p-8 transition-colors duration-300 hover:bg-paper-warm md:p-10">
+                <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-ink-500">
+                  <span>{p.en}</span>
+                  <span className="tabular-nums text-ink-900">{p.no} / 03</span>
                 </div>
-              </Reveal>
-            );
-          })}
+                <div className="mt-8 font-display text-[clamp(3.5rem,7vw,6rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-ink-900">
+                  {p.metric}
+                </div>
+                <h3 className="mt-8 font-display text-xl font-semibold text-ink-900">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-[13px] leading-relaxed text-ink-500">{p.body}</p>
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-0 h-px w-0 bg-aqua-600 transition-all duration-500 group-hover:w-full"
+                />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

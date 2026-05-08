@@ -1,5 +1,4 @@
 import Hero from '@/components/sections/Hero';
-import Stats from '@/components/sections/Stats';
 import Strengths from '@/components/sections/Strengths';
 import Products from '@/components/sections/Products';
 import Bousai from '@/components/sections/Bousai';
@@ -11,7 +10,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Stats />
       <Strengths />
       <Products />
       <Bousai />

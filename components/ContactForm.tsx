@@ -20,20 +20,25 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="relative rounded-3xl border border-ink-100 bg-white p-8 shadow-soft md:p-10">
+    <div className="relative border border-ink-200 bg-white">
+      <div className="flex items-center justify-between border-b border-ink-200 px-7 py-4 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-500">
+        <span>[FORM-01]</span>
+        <span>SECURE TRANSMISSION</span>
+      </div>
+
       <AnimatePresence>
         {sent && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-3xl bg-white"
+            className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white"
           >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-              className="inline-flex size-16 items-center justify-center rounded-full bg-leaf-500/15 text-leaf-500"
+              className="inline-flex size-16 items-center justify-center bg-leaf-500 text-white"
             >
               <Check className="size-7" strokeWidth={2.4} />
             </motion.div>
@@ -47,10 +52,10 @@ export default function ContactForm() {
         )}
       </AnimatePresence>
 
-      <form onSubmit={onSubmit} className="space-y-6">
+      <form onSubmit={onSubmit} className="space-y-7 p-7 md:p-9">
         <div>
-          <label className="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">
-            お問い合わせ種別
+          <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-500">
+            01 · お問い合わせ種別
           </label>
           <div className="mt-3 flex flex-wrap gap-2">
             {TOPICS.map((t) => (
@@ -58,7 +63,7 @@ export default function ContactForm() {
                 key={t}
                 type="button"
                 onClick={() => setTopic(t)}
-                className={`rounded-full border px-4 py-1.5 text-sm transition-all ${
+                className={`border px-4 py-1.5 text-[13px] transition-all ${
                   topic === t
                     ? 'border-ink-900 bg-ink-900 text-white'
                     : 'border-ink-200 bg-white text-ink-600 hover:border-ink-400'
@@ -70,33 +75,29 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {[
-          { id: 'name', label: 'お名前', type: 'text', required: true },
-          { id: 'company', label: '会社名 / 団体名', type: 'text' },
-          { id: 'email', label: 'メールアドレス', type: 'email', required: true },
-        ].map((f) => (
-          <Field key={f.id} {...f} />
-        ))}
+        <Field id="name" index="02" label="お名前" type="text" required />
+        <Field id="company" index="03" label="会社名 / 団体名" type="text" />
+        <Field id="email" index="04" label="メールアドレス" type="email" required />
 
         <div>
           <label
             htmlFor="message"
-            className="text-xs font-medium uppercase tracking-[0.2em] text-ink-500"
+            className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-500"
           >
-            お問い合わせ内容 *
+            05 · お問い合わせ内容 *
           </label>
           <textarea
             id="message"
             name="message"
             required
             rows={6}
-            className="mt-3 w-full resize-none rounded-2xl border border-ink-200 bg-white px-5 py-4 text-sm text-ink-900 placeholder:text-ink-400 outline-none transition-colors focus:border-aqua-500"
+            className="mt-3 w-full resize-none border border-ink-200 bg-white px-5 py-4 text-[14px] text-ink-900 placeholder:text-ink-400 outline-none transition-colors focus:border-ink-900"
             placeholder="ご相談内容をお書きください"
           />
         </div>
 
-        <div className="flex items-center justify-between gap-4 pt-2">
-          <p className="text-xs text-ink-500 leading-relaxed">
+        <div className="flex flex-col items-start gap-4 border-t border-ink-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[12px] text-ink-500 leading-relaxed">
             送信前に
             <a href="#" className="text-ink-900 underline underline-offset-4">
               プライバシーポリシー
@@ -114,26 +115,28 @@ export default function ContactForm() {
 
 function Field({
   id,
+  index,
   label,
   type,
   required,
 }: {
   id: string;
+  index: string;
   label: string;
   type: string;
   required?: boolean;
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">
-        {label} {required && '*'}
+      <label htmlFor={id} className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-500">
+        {index} · {label} {required && '*'}
       </label>
       <input
         id={id}
         name={id}
         type={type}
         required={required}
-        className="mt-3 w-full rounded-2xl border border-ink-200 bg-white px-5 py-3.5 text-sm text-ink-900 placeholder:text-ink-400 outline-none transition-colors focus:border-aqua-500"
+        className="mt-3 w-full border border-ink-200 bg-white px-5 py-3.5 text-[14px] text-ink-900 placeholder:text-ink-400 outline-none transition-colors focus:border-ink-900"
       />
     </div>
   );

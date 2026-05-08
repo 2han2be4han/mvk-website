@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import PageHero from '@/components/ui/PageHero';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
-import TiltCard from '@/components/ui/TiltCard';
 import CTA from '@/components/sections/CTA';
-import { Droplet, GitBranch, Sparkles, Wrench, Zap, Layers } from 'lucide-react';
+import { ArrowUpRight, Download } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: '製品情報',
@@ -12,18 +11,26 @@ export const metadata: Metadata = {
 };
 
 const CATEGORIES = [
-  { icon: Droplet, title: '住宅用バルブ', en: 'Residential Valves', text: '止水栓、ボール弁、ゲートバルブ。生活インフラの基本。', color: 'from-aqua-400/20 to-aqua-700/10', accent: 'text-aqua-600' },
-  { icon: GitBranch, title: '管継手', en: 'Pipe Joints', text: '銅・ステンレス・樹脂継手の精密ライン。', color: 'from-copper-400/20 to-copper-600/10', accent: 'text-copper-600' },
-  { icon: Wrench, title: '応急給水栓', en: 'Emergency Tap', text: '災害時の給水ライフラインを支える仮設栓。', color: 'from-ink-400/20 to-aqua-700/10', accent: 'text-ink-700' },
-  { icon: Zap, title: 'MOLDEX', en: 'Workplace Safety', text: 'スパークプラグステーション他、労働安全用品。', color: 'from-leaf-500/20 to-aqua-500/10', accent: 'text-leaf-500' },
-  { icon: Layers, title: '消防製品', en: 'Fire Protection', text: 'スプリンクラー周辺機器・連結送水管。', color: 'from-ink-500/20 to-copper-400/10', accent: 'text-ink-700' },
-  { icon: Sparkles, title: 'OEM・特注', en: 'Custom', text: '貴社仕様に合わせた特注品の設計・製造。', color: 'from-aqua-300/20 to-copper-300/10', accent: 'text-aqua-600' },
+  { code: 'RV', no: '01', en: 'Residential Valves', title: '住宅用バルブ', text: '止水栓・ボール弁・ゲートバルブ。生活インフラの基本。', items: 240 },
+  { code: 'EJ', no: '02', en: 'Pipe Joints', title: '管継手', text: '銅・ステンレス・樹脂継手の精密ライン。', items: 380 },
+  { code: 'EW', no: '03', en: 'Emergency Tap', title: '応急給水栓', text: '災害時の給水ライフラインを支える仮設栓。', items: 18 },
+  { code: 'MX', no: '04', en: 'MOLDEX Series', title: 'MOLDEX 労働安全', text: 'スパークプラグステーション他、安全用品。', items: 32 },
+  { code: 'FP', no: '05', en: 'Fire Protection', title: '消防製品', text: 'スプリンクラー周辺機器・連結送水管。', items: 110 },
+  { code: 'OEM', no: '06', en: 'Custom OEM', title: 'OEM・特注', text: '貴社仕様に合わせた特注品の設計・製造。', items: '∞' },
+];
+
+const DOWNLOADS = [
+  { code: 'CT-01', t: '製品総合カタログ 2026', sub: 'PDF · 24 MB · 178p' },
+  { code: 'PR-26', t: '価格表 2026.04 改訂版', sub: 'PDF · 6 MB · 64p' },
+  { code: 'CAD-A', t: 'CAD データセット (A)', sub: 'DXF / DWG · 18 MB' },
+  { code: 'IM-01', t: '取付・施工マニュアル', sub: 'PDF · 12 MB · 96p' },
 ];
 
 export default function ProductsPage() {
   return (
     <>
       <PageHero
+        index="B"
         kicker="Products"
         title={
           <>
@@ -32,68 +39,86 @@ export default function ProductsPage() {
           </>
         }
         description="住宅から災害現場、産業ラインまで。MVK は 1,200 を超える製品で、現場ごとの「確実」をつくります。"
+        meta={[
+          { label: 'Lineup', value: '1,200+ items' },
+          { label: 'Standard', value: 'JIS · 消防認定' },
+          { label: 'Cycles', value: '100,000 tested' },
+        ]}
       />
 
-      <section className="py-24 md:py-32">
+      <section className="py-28 md:py-40">
         <div className="container-x">
           <SectionHeading kicker="Categories" title="製品カテゴリ" />
 
-          <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3" id="joints">
-            {CATEGORIES.map((c, i) => {
-              const Icon = c.icon;
-              return (
-                <Reveal key={c.title} delay={i * 0.06}>
-                  <TiltCard className="h-full rounded-3xl">
-                    <div className="group relative h-full overflow-hidden rounded-3xl border border-ink-100 bg-white p-7 transition-shadow duration-500 hover:shadow-deep">
-                      <div className={`absolute -right-10 -top-10 size-40 rounded-full bg-gradient-to-br ${c.color} blur-2xl`} />
-                      <div className="relative">
-                        <div className={`inline-flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br ${c.color} ${c.accent}`}>
-                          <Icon className="size-5" strokeWidth={1.6} />
-                        </div>
-                        <div className="mt-6 text-[10px] font-medium uppercase tracking-[0.25em] text-ink-400">
-                          {c.en}
-                        </div>
-                        <h3 className="mt-1 font-display text-2xl font-semibold text-ink-900">
-                          {c.title}
-                        </h3>
-                        <p className="mt-3 text-sm text-ink-500">{c.text}</p>
-                      </div>
-                    </div>
-                  </TiltCard>
-                </Reveal>
-              );
-            })}
+          <div
+            className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-ink-200 bg-ink-200 sm:grid-cols-2 lg:grid-cols-3"
+            id="joints"
+          >
+            {CATEGORIES.map((c) => (
+              <Reveal key={c.code}>
+                <div className="group relative flex h-full flex-col bg-paper p-8 transition-colors hover:bg-paper-warm md:p-10">
+                  <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-ink-500">
+                    <span>{c.en}</span>
+                    <span className="tabular-nums text-ink-900">{c.no} / 06</span>
+                  </div>
+
+                  <div className="mt-12 flex items-baseline gap-2">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-500">
+                      MVK-{c.code}
+                    </span>
+                    <span className="size-1 rounded-full bg-ink-300" />
+                    <span className="font-mono text-[11px] tabular-nums text-ink-500">
+                      {c.items} items
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-ink-900 md:text-[1.7rem]">
+                    {c.title}
+                  </h3>
+                  <p className="mt-3 text-[14px] leading-relaxed text-ink-500">{c.text}</p>
+
+                  <div className="mt-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-700 transition-colors group-hover:text-ink-900">
+                    Browse
+                    <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                  <span
+                    aria-hidden
+                    className="absolute bottom-0 left-0 h-px w-0 bg-aqua-600 transition-all duration-500 group-hover:w-full"
+                  />
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-ink-50/60 py-24 md:py-32 border-y border-ink-100">
-        <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+      <section className="bg-paper py-28 hairline-t hairline-b md:py-40">
+        <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <SectionHeading
-            kicker="Catalog"
-            title={<>カタログ・<br />CAD データ。</>}
+            kicker="Downloads"
+            title={<>カタログ /<br />CAD データ。</>}
             description="設計者・施工管理者向けに、最新の製品仕様書と CAD データを公開しています。"
           />
           <Reveal>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {[
-                { t: '製品総合カタログ 2026', sub: 'PDF / 24MB' },
-                { t: '価格表 2026.04', sub: 'PDF / 6MB' },
-                { t: 'CAD データセット', sub: 'DXF / DWG' },
-                { t: '取付・施工マニュアル', sub: 'PDF / 12MB' },
-              ].map((c) => (
-                <div
-                  key={c.t}
-                  className="group flex items-center justify-between rounded-2xl border border-ink-100 bg-white p-5 transition-all hover:border-ink-300 hover:shadow-soft"
+            <div className="overflow-hidden border border-ink-200 bg-white">
+              {DOWNLOADS.map((d) => (
+                <a
+                  key={d.code}
+                  href="#"
+                  className="group grid grid-cols-[5rem_1fr_auto] items-center gap-6 border-b border-ink-100 px-5 py-5 last:border-b-0 hover:bg-paper-warm sm:px-7"
                 >
-                  <div>
-                    <div className="text-sm font-medium text-ink-900">{c.t}</div>
-                    <div className="mt-0.5 text-xs text-ink-500">{c.sub}</div>
-                  </div>
-                  <span className="text-xs uppercase tracking-wider text-aqua-600 transition-transform group-hover:translate-x-0.5">
-                    DL ↗
+                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-500">
+                    [{d.code}]
                   </span>
-                </div>
+                  <div>
+                    <div className="text-[15px] font-medium text-ink-900">{d.t}</div>
+                    <div className="mt-0.5 font-mono text-[11px] tabular-nums text-ink-500">
+                      {d.sub}
+                    </div>
+                  </div>
+                  <span className="inline-flex size-9 items-center justify-center border border-ink-200 text-ink-700 transition-all group-hover:border-ink-900 group-hover:bg-ink-900 group-hover:text-white">
+                    <Download className="size-3.5" strokeWidth={1.4} />
+                  </span>
+                </a>
               ))}
             </div>
           </Reveal>
