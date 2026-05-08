@@ -104,7 +104,7 @@ export default function ContactForm() {
             </a>
             にご同意ください。
           </p>
-          <MagneticButton onClick={() => {}}>
+          <MagneticButton type="submit">
             {pending ? '送信中...' : '送信する'}
           </MagneticButton>
         </div>

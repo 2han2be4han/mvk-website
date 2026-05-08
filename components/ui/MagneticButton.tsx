@@ -12,6 +12,7 @@ interface MagneticButtonProps {
   className?: string;
   showArrow?: boolean;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function MagneticButton({
@@ -21,6 +22,7 @@ export default function MagneticButton({
   className,
   showArrow = true,
   onClick,
+  type = 'button',
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement & HTMLButtonElement>(null);
   const reduce = useReducedMotion();
@@ -83,7 +85,7 @@ export default function MagneticButton({
   return (
     <button
       ref={ref}
-      type="button"
+      type={type}
       onClick={onClick}
       className={cn(base, variants[variant], className)}
       onMouseMove={handleMove}

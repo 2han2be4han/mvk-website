@@ -59,42 +59,44 @@
   70%, 100% { opacity: 0; }
 }
 
-:root {
-  color-scheme: light;
-  --bg: var(--color-paper);
-  --fg: var(--color-ink-900);
-  --rule: var(--color-ink-200);
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg: var(--color-paper);
+    --fg: var(--color-ink-900);
+    --rule: var(--color-ink-200);
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html { scroll-behavior: smooth; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: clip; }
+  .lenis.lenis-smooth iframe { pointer-events: none; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    letter-spacing: -0.005em;
+    line-height: 1.6;
+  }
+
+  ::selection { background: var(--color-ink-900); color: white; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--color-ink-200); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-ink-400); }
 }
-
-* {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html { scroll-behavior: smooth; }
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: clip; }
-.lenis.lenis-smooth iframe { pointer-events: none; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-sans);
-  font-feature-settings: 'cv11', 'ss01', 'ss03';
-  letter-spacing: -0.005em;
-  line-height: 1.6;
-}
-
-::selection { background: var(--color-ink-900); color: white; }
-
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--color-ink-200); }
-::-webkit-scrollbar-thumb:hover { background: var(--color-ink-400); }
 
 @utility container-x {
   margin-inline: auto;
@@ -159,15 +161,17 @@ body {
   animation: shimmer 6s ease-in-out infinite;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  line-height: 1.05;
-  text-wrap: balance;
-}
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
 
-a { color: inherit; text-decoration: none; }
+  a { color: inherit; text-decoration: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

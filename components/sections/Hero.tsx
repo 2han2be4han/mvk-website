@@ -73,12 +73,8 @@ export default function Hero() {
         <h1 className="font-display text-[clamp(3rem,10.5vw,11rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-ink-900">
           <SplitLine text="暮らしと" delay={0.15} />
           <br />
-          <span className="inline-block">
-            <SplitLine text="水を" delay={0.45} />
-            <span className="gradient-text-aqua">
-              <SplitLine text="むすぶ" delay={0.65} />
-            </span>
-          </span>
+          <SplitLine text="水を" delay={0.45} />
+          <SplitLine text="むすぶ" delay={0.65} className="gradient-text-aqua" />
         </h1>
 
         <div className="mt-12 grid gap-12 md:grid-cols-[1.4fr_1fr] md:gap-16 md:items-end">
@@ -152,11 +148,19 @@ export default function Hero() {
   );
 }
 
-function SplitLine({ text, delay = 0 }: { text: string; delay?: number }) {
+function SplitLine({
+  text,
+  delay = 0,
+  className,
+}: {
+  text: string;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <span className="inline-block overflow-hidden align-bottom">
       <motion.span
-        className="inline-block"
+        className={`inline-block${className ? ' ' + className : ''}`}
         initial={{ y: '105%' }}
         animate={{ y: 0 }}
         transition={{ duration: 0.95, delay, ease: [0.22, 1, 0.36, 1] }}
